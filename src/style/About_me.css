@@ -1,0 +1,64 @@
+.about .row {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    padding: 0.5rem 0;
+}
+
+.about .row .info {
+    flex:1rem;
+    padding: 1rem 0.5rem;
+    padding-left: 1rem;
+}
+
+.about .row .info h3 {
+    font-size: 1rem;
+    color: rgb(13, 158, 0);
+    padding: 1rem 0;
+    font-weight: normal;
+}
+
+.about .row .info h3 span {
+    font-size: 1rem;
+    font-weight: bold;
+    background: linear-gradient(to right, #ffffff, #ffffff);
+    -webkit-background-clip: text;
+    color: transparent;
+    animation: pulse 1.5s infinite;
+}
+.custom-title {
+    font-size: 2rem;
+    font-weight: bold;
+    background: linear-gradient(to right, #ffffff, #ffffff);
+    -webkit-background-clip: text;
+    color: transparent;
+    animation: pulse 1.5s infinite;
+  }
+.about span {
+    color: white;
+    font-size: 1.5rem;
+}
+
+.about .row .counter {
+    padding: 1rem 0.5rem;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.about .row .counter .box {
+    width: 15rem;
+    text-align: left;
+    padding: 1rem;
+    margin: 0.5rem;
+    
+}
+.about .row .counter .box h3 {
+    font-size: 1rem;
+    color: rgb(0, 255, 34);
+}
+
+.about h1 {
+    color: orange;
+}
