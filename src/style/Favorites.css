@@ -1,0 +1,38 @@
+.favorites-content {
+    background-color: #0a0a0a; /* Deep Black Background */
+    color: #ffffff;
+    padding: 15px;
+}
+
+.header-toolbar {
+    background: linear-gradient(to right, #003366, #000000); /* Blue to Black Gradient */
+    color: #ffffff;
+}
+
+.custom-title {
+    font-size: 22px;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.favorite-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0px 6px 15px rgba(255, 255, 255, 0.5);
+}
+
+.favorite-card h2 {
+    font-size: 20px;
+    font-weight: bold;
+    color: #ffffff; /* Bright Blue Title */
+    margin-bottom: 5px;
+}
+
+.favorite-card p {
+    font-size: 16px;
+    color: #bbbbbb; /* Light Gray Text */
+}
+
+.ion-card-header {
+    border-bottom: 2px solid #0055aa; /* Thin Blue Border */
+}

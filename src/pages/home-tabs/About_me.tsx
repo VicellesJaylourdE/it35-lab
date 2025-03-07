@@ -6,45 +6,42 @@ import {
     IonMenuButton, 
     IonPage, 
     IonTitle, 
-    IonToolbar 
+    IonToolbar, 
+    IonAvatar, 
+    IonCard, 
+    IonCardContent
 } from '@ionic/react';
 
 const AboutMe: React.FC = () => {
     return (
         <IonPage>
             <IonHeader>
-                <IonToolbar>
+                <IonToolbar className="header-toolbar">
                     <IonButtons slot="start">
                         <IonMenuButton />
                     </IonButtons>
-                    <IonTitle className="custom-title">About Me</IonTitle>
+                    <IonTitle>My Account</IonTitle>
                 </IonToolbar>
             </IonHeader>
-            <IonContent fullscreen>
-                <section className="about fade-in" id="About">
-                    <div className="row fade-in">
-                        <div className="info fade-in">
-                            <h3><span> Name:</span>Jay Lourd E. Vicelles</h3>
-                            <h3><span> Age: </span> 21</h3>
-                            <h3><span> Post:</span> Front End Developer</h3>
-                            <h3><span> Language: </span> English</h3>
-                        </div>
-                        
-                        <div className="counter fade-in">
-                            <div className="box fade-in">
-                                <span>3+</span>
-                                <h3>Project Completed</h3>
-                            </div>
+            <IonContent fullscreen className="account-content">
+                <div className="profile-section">
+                    <IonAvatar className="profile-avatar">
+                    <img src="src/public/profile.jpg" alt="Jay Lourd E. Vicelles" />
 
-                            <div className="box fade-in">
-                                <span>2+</span>
-                                <h3>Years Of Studying</h3>
-                            </div>
+                    </IonAvatar>
+                    <h2>Jay Lourd E. Vicelles</h2>
+                    <p>Frontend Developer</p>
 
-                            
-                        </div>
-                    </div>
-                </section>
+                </div>
+                
+                <IonCard className="info-card">
+                    <IonCardContent>
+                        <h3><span> Age:</span> 21</h3>
+                        <h3><span> Language:</span> English</h3>
+                        <h3><span> Projects Completed:</span> 3+</h3>
+                        <h3><span> Years of Studying:</span> 2+</h3>
+                    </IonCardContent>
+                </IonCard>
             </IonContent>
         </IonPage>
     );

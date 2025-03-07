@@ -1,4 +1,3 @@
-
 import { 
   IonButton,
     IonButtons,
@@ -22,6 +21,7 @@ import Favorites from './home-tabs/Favorites';
 import Feed from './home-tabs/Feed';
 import Search from './home-tabs/Search';
 import About_me from './home-tabs/About_me';
+import Article from '../components/Article';
   const Home: React.FC = () => {
 
     const tabs = [
@@ -47,9 +47,11 @@ import About_me from './home-tabs/About_me';
         <IonRouterOutlet>
 
           <Route exact path="/it35-lab/app/home/feed" render={Feed} />
+          <Route exact path="/it35-lab/app/home/feed/article/:id" component={Article} />
           <Route exact path="/it35-lab/app/home/search" render={Search} />
           <Route exact path="/it35-lab/app/home/favorites" render={Favorites} />
           <Route exact path="/it35-lab/app/home/About_me" render={About_me} />
+          
 
           <Route exact path="/it35-lab/app/home">
             <Redirect to="/it35-lab/app/home/feed" />

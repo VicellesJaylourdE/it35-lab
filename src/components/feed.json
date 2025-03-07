@@ -1,0 +1,59 @@
+
+[
+    {
+      "id": "1",
+      "title": "My Journey into Web Development",
+      "author": "Jay Lourd E. Vicelles",
+      "description": "How I started my passion for coding and building websites.",
+      "date": "Fri, 07 Mar 2025 00:00:00 GMT",
+      "details": [
+        "I began my journey into web development with a curiosity about how websites work. Learning HTML, CSS, and JavaScript was my first step in understanding how to create dynamic and interactive sites.",
+        "Over time, I explored backend technologies like PHP and MySQL, which allowed me to build full-stack applications. With every project, I continue to improve and expand my skill set."
+      ]
+    },
+    {
+      "id": "2",
+      "title": "Projects I’ve Worked On",
+      "author": "Jay Lourd E. Vicelles",
+      "description": "An overview of the projects I've developed so far.",
+      "date": "Thu, 06 Mar 2025 00:00:00 GMT",
+      "details": [
+        "I have worked on various projects, including a t-shirt shop website, a malware detection system, and a school event attendance system using barcode technology.",
+        "Each project has taught me new skills, from database management to security best practices, improving my ability to build efficient and secure applications."
+      ]
+    },
+    {
+      "id": "3",
+      "title": "Why I Love Frontend Development",
+      "author": "Jay Lourd E. Vicelles",
+      "description": "The creative and technical aspects that make frontend development exciting.",
+      "date": "Wed, 05 Mar 2025 00:00:00 GMT",
+      "details": [
+        "Frontend development allows me to bring ideas to life through design and interactivity. I enjoy working with CSS, JavaScript, and modern frameworks to create visually appealing and user-friendly applications.",
+        "I strive to make every interface intuitive and responsive, ensuring a seamless experience across different devices."
+      ]
+    },
+    {
+      "id": "4",
+      "title": "The Importance of Secure Coding",
+      "author": "Jay Lourd E. Vicelles",
+      "description": "Why security should be a priority in web development.",
+      "date": "Tue, 04 Mar 2025 00:00:00 GMT",
+      "details": [
+        "Security is crucial in web development, as vulnerabilities can lead to data breaches and system compromises. I always implement security measures such as input validation and SQL injection prevention.",
+        "By following best practices, I ensure that the applications I build are safe for users and protect sensitive data."
+      ]
+    },
+    {
+      "id": "5",
+      "title": "My Vision for the Future",
+      "author": "Jay Lourd E. Vicelles",
+      "description": "Where I see myself in the world of technology.",
+      "date": "Mon, 03 Mar 2025 00:00:00 GMT",
+      "details": [
+        "I aspire to continue growing as a web developer and explore new technologies such as AI-driven applications and blockchain solutions.",
+        "My goal is to create impactful projects that solve real-world problems and contribute to the tech community through knowledge sharing and collaboration."
+      ]
+    }
+  ]
+  
