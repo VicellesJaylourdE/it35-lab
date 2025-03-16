@@ -22,6 +22,7 @@ import Feed from './home-tabs/Feed';
 import Search from './home-tabs/Search';
 import About_me from './home-tabs/About_me';
 import Article from '../components/Article';
+import SignUp from './SignUp';
   const Home: React.FC = () => {
 
     const tabs = [
@@ -47,6 +48,7 @@ import Article from '../components/Article';
         <IonRouterOutlet>
 
           <Route exact path="/it35-lab/app/home/feed" render={Feed} />
+          <Route exact path="/it35-lab/app/home/SignUp" component={SignUp} />
           <Route exact path="/it35-lab/app/home/feed/article/:id" component={Article} />
           <Route exact path="/it35-lab/app/home/search" render={Search} />
           <Route exact path="/it35-lab/app/home/favorites" render={Favorites} />

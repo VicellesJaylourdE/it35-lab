@@ -1,5 +1,5 @@
 import { 
-  IonAvatar, 
+  
   IonButton, 
   IonContent, 
   
@@ -19,15 +19,16 @@ const Login: React.FC = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [errorMessage, setErrorMessage] = useState('');
+  const [showPassword, setShowPassword] = useState(false);
 
   const doLogin = () => {
-    // Basic validation before login attempt
+ 
     if (!email || !password) {
       setErrorMessage('Both fields are required.');
       return;
     }
 
-    // If validation passes, proceed with login
+   
     setErrorMessage('');
     navigation.push('/it35-lab/app', 'forward');
   };
@@ -47,20 +48,9 @@ const Login: React.FC = () => {
             marginBottom: '-18rem',
           }}
         >
-          <IonAvatar
-            style={{
-           
-              width: '150px',
-              height: '150px',
-              borderRadius: '50%',
-              overflow: 'hidden',
-              display: 'flex',
-              justifyContent: 'center',
-              alignItems: 'center',
-            }}
-          >
   
-          </IonAvatar>
+
+        
         
         </div>
 
@@ -83,23 +73,25 @@ const Login: React.FC = () => {
         </IonItem>
 
         <IonItem>
-          <IonInput 
-            type="password"
+          <IonInput
+            type={showPassword ? "text" : "password"}
             label="Password"
             value={password}
             placeholder="Enter your password"
             onIonInput={(e) => setPassword(e.detail.value!)}
           />
+          <IonButton fill="clear" onClick={() => setShowPassword(!showPassword)}>
+            {showPassword ? 'Hide' : 'Show'}
+          </IonButton>
         </IonItem>
 
         <IonButton onClick={doLogin} expand="full" style={{ marginTop: '1rem' }}>
           Login
         </IonButton>
 
-        {/* Redirect to SignUp */}
+
         <div style={{ marginTop: '1rem', textAlign: 'center' }}>
-          <span>Don't have an account? </span>
-          <IonButton routerLink="/it35-lab/app/SignUp" fill="clear">Sign Up</IonButton>
+        <IonButton routerLink="/it35-lab/app/home/signup" fill="clear">Creating  New Account</IonButton>
         </div>
       </IonContent>
     </IonPage>

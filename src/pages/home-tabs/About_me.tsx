@@ -26,7 +26,7 @@ const AboutMe: React.FC = () => {
             <IonContent fullscreen className="account-content">
                 <div className="profile-section">
                     <IonAvatar className="profile-avatar">
-                    <img src="src/public/profile.jpg" alt="Jay Lourd E. Vicelles" />
+                    <img src="src/profile/profile.jpg" alt="Jay Lourd E. Vicelles" />
 
                     </IonAvatar>
                     <h2>Jay Lourd E. Vicelles</h2>
