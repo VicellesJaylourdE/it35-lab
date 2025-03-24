@@ -1,4 +1,5 @@
 import { 
+    IonAlert,
     IonButton, 
     IonContent, 
     IonHeader, 
@@ -11,7 +12,7 @@ import {
     IonRouterOutlet, 
     IonSplitPane, 
     IonTitle, 
-    IonToolbar 
+    IonToolbar,
   } from '@ionic/react';
   
   import { homeOutline, logOutOutline, rocketOutline } from 'ionicons/icons';
