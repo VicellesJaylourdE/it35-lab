@@ -19,7 +19,6 @@ const SignUp: React.FC = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [username, setUsername] = useState('');
-  const [showUsername, setShowUsername] = useState(false);
   const [showEmail, setShowEmail] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
   const [errorMessage, setErrorMessage] = useState('');
@@ -61,58 +60,73 @@ const SignUp: React.FC = () => {
 
   return (
     <IonPage>
-      <IonContent className="ion-padding">
-        <IonTitle className="ion-text-center">Register</IonTitle>
+      <IonContent className="ion-padding" style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100vh', backgroundColor: '#121212' }}>
+        <IonCard style={{ width: '90%', maxWidth: '400px', padding: '20px', borderRadius: '15px' }}>
+          <IonTitle className="ion-text-center" style={{ fontSize: '22px', fontWeight: 'bold', marginBottom: '10px' }}>REGISTER</IonTitle>
 
-        <IonCard>
-          <IonCardContent>
+          <IonCardContent style={{ textAlign: 'center' }}>
             {/* Username Input */} 
-            <IonItem style={{ '--inner-padding-top': '5px', '--inner-padding-bottom': '5px' }}>
-            <IonLabel position="stacked" style={{ fontSize: '14px', marginBottom: '-5px' }}>
-                  Username
-             </IonLabel>
-            <IonInput
-             type="text"
-             value={username}
-            onIonInput={(e) => setUsername(e.detail.value!)}
-            />
+            <IonItem>
+              <IonLabel position="stacked">Username</IonLabel>
+              <IonInput
+                type="text"
+                value={username}
+                placeholder="Enter your username"
+                onIonInput={(e) => setUsername(e.detail.value!)}
+              />
             </IonItem>
 
+            {/* Email Input */}
+            <IonItem>
+              <IonLabel position="stacked">Email</IonLabel>
+              <IonInput
+                type="email"
+                value={showEmail ? email : ''}
+                placeholder="Enter your email"
+                onIonFocus={() => setShowEmail(true)}
+                onIonBlur={() => setShowEmail(email.length > 0)}
+                onIonInput={(e) => setEmail(e.detail.value!)}
+              />
+            </IonItem>
 
-             {/* Email Input */}
-    <IonItem style={{ '--inner-padding-top': '5px', '--inner-padding-bottom': '5px' }}>
-      <IonLabel position="stacked" style={{ fontSize: '14px', marginBottom: '-5px' }}>
-        Email
-      </IonLabel>
-      <IonInput
-        type="email"
-        value={showEmail ? email : ''}
-        onIonFocus={() => setShowEmail(true)}
-        onIonBlur={() => setShowEmail(email.length > 0)}
-        onIonInput={(e) => setEmail(e.detail.value!)}
-      />
-    </IonItem>
+            {/* Password Input */}
+            <IonItem>
+              <IonLabel position="stacked">Password</IonLabel>
+              <IonInput
+                type="password"
+                value={showPassword ? password : ''}
+                placeholder="Enter your password"
+                onIonFocus={() => setShowPassword(true)}
+                onIonBlur={() => setShowPassword(password.length > 0)}
+                onIonInput={(e) => setPassword(e.detail.value!)}
+              />
+            </IonItem>
 
-           {/* Password Input */}
-    <IonItem style={{ '--inner-padding-top': '5px', '--inner-padding-bottom': '5px' }}>
-      <IonLabel position="stacked" style={{ fontSize: '14px', marginBottom: '-5px' }}>
-        Password
-      </IonLabel>
-      <IonInput
-        type="password"
-        value={showPassword ? password : ''}
-        onIonFocus={() => setShowPassword(true)}
-        onIonBlur={() => setShowPassword(password.length > 0)}
-        onIonInput={(e) => setPassword(e.detail.value!)}
-      />
-    </IonItem>
-
-            <IonButton expand="full" onClick={handleSignUp} disabled={loading}>
-              {loading ? <IonSpinner name="dots" /> : 'Sign Up'}
+            {/* Register Button */}
+            <IonButton 
+              expand="full" 
+              onClick={handleSignUp} 
+              disabled={loading}
+              style={{ borderRadius: '20px', fontSize: '16px', fontWeight: 'bold', marginTop: '10px' }}
+            >
+              {loading ? <IonSpinner name="dots" /> : 'REGISTER'}
             </IonButton>
+
+           {/* Sign In Link */}
+             <div style={{ textAlign: 'center', marginTop: '15px' }}>
+        <IonButton 
+        routerLink="/it35-lab"
+       fill="clear" 
+      style={{ color: '#488aff', textTransform: 'uppercase', fontSize: '14px' }}
+    >
+      ALREADY HAVE AN ACCOUNT?
+    </IonButton>
+    </div>
+
           </IonCardContent>
         </IonCard>
 
+        {/* Toast Message */}
         <IonToast
           isOpen={showToast}
           onDidDismiss={() => setShowToast(false)}
@@ -124,5 +138,6 @@ const SignUp: React.FC = () => {
     </IonPage>
   );
 };
+
 
 export default SignUp;
