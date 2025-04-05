@@ -1,19 +1,34 @@
-import { 
-  
-  IonButton, 
-  IonContent, 
-  
-  IonInput, 
-  IonItem, 
-  IonPage, 
-  IonTitle, 
-  IonToolbar, 
-  useIonRouter 
+import {
+  IonAlert,
+  IonButton,
+  IonContent,
+  IonHeader,
+  IonInput,
+  IonItem,
+  IonPage,
+  IonTitle,
+  IonToast,
+  IonToolbar,
+  useIonRouter
 } from '@ionic/react';
-
 
 import { useState } from 'react';
 import { supabase } from '../utils/supabaseClient';
+
+// Reusable AlertBox
+const AlertBox: React.FC<{
+  message: string;
+  isOpen: boolean;
+  onClose: () => void;
+}> = ({ message, isOpen, onClose }) => (
+  <IonAlert
+    isOpen={isOpen}
+    onDidDismiss={onClose}
+    header="Notification"
+    message={message}
+    buttons={['OK']}
+  />
+);
 
 const Login: React.FC = () => {
   const navigation = useIonRouter();
@@ -21,41 +36,33 @@ const Login: React.FC = () => {
   const [password, setPassword] = useState('');
   const [errorMessage, setErrorMessage] = useState('');
   const [showPassword, setShowPassword] = useState(false);
+  const [alertMessage, setAlertMessage] = useState('');
+  const [showAlert, setShowAlert] = useState(false);
+  const [showToast, setShowToast] = useState(false);
 
   const doLogin = () => {
- 
     if (!email || !password) {
       setErrorMessage('Both fields are required.');
       return;
     }
 
-   
     setErrorMessage('');
-    navigation.push('/it35-lab/app', 'forward');
+    setShowToast(true); // Show toast
+    setTimeout(() => {
+      navigation.push('/it35-lab/app', 'forward');
+    }, 1500); // Redirect after toast duration
   };
 
   return (
     <IonPage>
-      <IonContent className='ion-padding'>
-        <div 
-          style={{
-            display: 'flex',
-            flexDirection: 'column',
-            alignItems: 'center',
-            justifyContent: 'center',
-            height: '100%',
-            width: '100%',
-            marginTop: '-10rem',
-            marginBottom: '-18rem',
-          }}
-        >
-  
+      {/* Proper header structure for IonTitle */}
+      <IonHeader>
+        <IonToolbar>
+          <IonTitle>LOGIN</IonTitle>
+        </IonToolbar>
+      </IonHeader>
 
-        
-        
-        </div>
-
-        <IonTitle>LOGIN</IonTitle>
+      <IonContent className="ion-padding">
 
         {errorMessage && (
           <div style={{ color: 'red', textAlign: 'center', marginBottom: '1rem' }}>
@@ -64,7 +71,7 @@ const Login: React.FC = () => {
         )}
 
         <IonItem>
-          <IonInput 
+          <IonInput
             label="Email"
             type="email"
             value={email}
@@ -75,7 +82,7 @@ const Login: React.FC = () => {
 
         <IonItem>
           <IonInput
-            type={showPassword ? "text" : "password"}
+            type={showPassword ? 'text' : 'password'}
             label="Password"
             value={password}
             placeholder="Enter your password"
@@ -90,10 +97,28 @@ const Login: React.FC = () => {
           Login
         </IonButton>
 
-
         <div style={{ marginTop: '1rem', textAlign: 'center' }}>
-        <IonButton routerLink="/it35-lab/app/home/signup" fill="clear">Creating  New Account</IonButton>
+          <IonButton routerLink="/it35-lab/app/home/signup" fill="clear">
+            Creating New Account
+          </IonButton>
         </div>
+
+        {/* AlertBox */}
+        <AlertBox
+          message={alertMessage}
+          isOpen={showAlert}
+          onClose={() => setShowAlert(false)}
+        />
+
+        {/* Toast works properly here */}
+        <IonToast
+          isOpen={showToast}
+          onDidDismiss={() => setShowToast(false)}
+          message="Login successful! Redirecting..."
+          duration={1500}
+          position="top"
+          color="success"
+        />
       </IonContent>
     </IonPage>
   );
