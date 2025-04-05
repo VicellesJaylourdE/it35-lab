@@ -40,17 +40,17 @@ const Login: React.FC = () => {
   const [showAlert, setShowAlert] = useState(false);
   const [showToast, setShowToast] = useState(false);
 
-  const doLogin = () => {
-    if (!email || !password) {
-      setErrorMessage('Both fields are required.');
-      return;
+  const doLogin = async () => {
+    const { error } = await supabase.auth.signInWithPassword({ email, password });
+    if (error) {
+      setErrorMessage(error.message);
+      setShowAlert(true);
+    } else {
+      setShowToast(true); 
+      setTimeout(() => {
+        navigation.push('/it35-lab/app', 'forward', 'replace');
+      }, 300);
     }
-
-    setErrorMessage('');
-    setShowToast(true); // Show toast
-    setTimeout(() => {
-      navigation.push('/it35-lab/app', 'forward');
-    }, 1500); // Redirect after toast duration
   };
 
   return (
