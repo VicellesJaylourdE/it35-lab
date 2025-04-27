@@ -1,20 +1,19 @@
-
-import { 
+import { useState } from 'react';
+import {
   IonAlert,
   IonAvatar,
   IonButton,
-  IonContent, 
-  IonIcon, 
-  IonInput, 
-  IonInputPasswordToggle,  
-  IonPage,  
-  IonToast,  
+  IonContent,
+  IonInput,
+  IonInputPasswordToggle,
+  IonPage,
+  IonToast,
   useIonRouter
 } from '@ionic/react';
-import { logoIonic } from 'ionicons/icons';
-import { useState } from 'react';
+
 import { supabase } from '../utils/supabaseClient';
 
+// Reusable AlertBox component
 const AlertBox: React.FC<{ message: string; isOpen: boolean; onClose: () => void }> = ({ message, isOpen, onClose }) => {
   return (
     <IonAlert
@@ -44,84 +43,145 @@ const Login: React.FC = () => {
       return;
     }
 
-    setShowToast(true); 
+    setShowToast(true);
     setTimeout(() => {
       navigation.push('/it35-lab/app', 'forward', 'replace');
     }, 300);
   };
-  
+
   return (
     <IonPage>
-      <IonContent className='ion-padding'>
-        <div style={{
-          display: 'flex',
-          flexDirection:'column',
-          alignItems: 'center',
-          justifyContent: 'center',
-          marginTop:'25%'
-        }}>
-          <IonAvatar
-            style={{
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'center',
-              width: '150px',
-              height: '150px',
-              borderRadius: '50%', 
-              overflow: 'hidden' 
-            }}
-          >
-            <IonIcon 
-              icon={logoIonic}
-              color='primary'
-              style={{ fontSize: '120px', color: '#6c757d' }} 
+      <IonContent className="ion-padding">
+        <div className="login-card">
+          <IonAvatar className="avatar-wrapper">
+            <img
+              src="https://media2.giphy.com/media/v1.Y2lkPTc5MGI3NjExM3JvZjB3MG9nc3NkNDUzMWc4eDQydG52NThvNXVnbmwyandpcGZrZSZlcD12MV9naWZzX3NlYXJjaCZjdD1n/Dg4TxjYikCpiGd7tYs/giphy.webp"
+              alt="dog"
             />
+            <div className="avatar-glow"></div>
           </IonAvatar>
-          <h1 style={{
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-          }}>USER LOGIN</h1>
+
+          <h1 className="signup-title">USER LOGIN</h1>
+          <p style={{ textAlign: 'left', color: '#666', marginBottom: '20px' }}>
+            Please login or sign up to continue
+          </p>
+
           <IonInput
-            label="Email" 
-            labelPlacement="floating" 
-            fill="outline"
+            placeholder="Your Email"
             type="email"
-            placeholder="Enter Email"
-            value={email}
-            onIonChange={e => setEmail(e.detail.value!)}
-          />
-          <IonInput style={{ marginTop:'10px' }}      
             fill="outline"
+            style={{
+              borderRadius: '12px',
+              marginBottom: '10px',
+              '--highlight-color-focused': '#007BFF',
+              '--border-color': '#6a80f2'
+            }}
+            value={email}
+            onIonChange={(e) => setEmail(e.detail.value!)}
+          />
+
+          <IonInput
+            placeholder="Your Password"
             type="password"
-            placeholder="Password"
+            fill="outline"
+            style={{
+              borderRadius: '12px',
+              marginBottom: '10px',
+              '--highlight-color-focused': '#008000',
+              '--border-color': '#6a80f2'
+            }}
             value={password}
-            onIonChange={e => setPassword(e.detail.value!)}
+            onIonChange={(e) => setPassword(e.detail.value!)}
           >
-            <IonInputPasswordToggle slot="end"></IonInputPasswordToggle>
+            <IonInputPasswordToggle slot="end" />
           </IonInput>
+
+          <IonButton
+            onClick={doLogin}
+            expand="full"
+            fill="solid"
+            color="success"
+            style={{ marginTop: '20px' }}
+          >
+            Login
+          </IonButton>
+
+          <p style={{ textAlign: 'center', color: '#aaa', fontSize: '14px' }}>
+            Already have an account? <a href="/it35-lab/app/home/signup" style={{ color: '#6c63ff', textDecoration: 'none' }}>Sign Up</a>
+          </p>
         </div>
-        <IonButton onClick={doLogin} expand="full" shape='round'>
-          Login
-        </IonButton>
 
-        <IonButton routerLink="/it35-lab/app/home/signup" expand="full" fill="clear" shape='round'>
-          Don't have an account?
-        </IonButton>
-
-        {/* Reusable AlertBox Component */}
         <AlertBox message={alertMessage} isOpen={showAlert} onClose={() => setShowAlert(false)} />
 
-        {/* IonToast for success message */}
         <IonToast
           isOpen={showToast}
           onDidDismiss={() => setShowToast(false)}
           message="Login successful! Redirecting..."
           duration={1500}
           position="top"
-          color="primary"
+          color="success"
         />
       </IonContent>
+
+      {/* Floating Animation and Card Styles */}
+      <style>
+        {`
+          @keyframes floatCard {
+            0%, 100% {
+              transform: translateY(0) rotateX(0deg) rotateZ(0deg);
+              box-shadow: 0 15px 25px rgba(0, 0, 0, 0.2), 0 0 20px 3px hsla(271, 76.5%, 48.4%, 0.6);
+            }
+            50% {
+              transform: translateY(-20px) rotateX(6deg) rotateZ(-3deg);
+              box-shadow: 0 25px 40px rgba(0, 0, 0, 0.3), 0 0 35px 7px rgba(108, 99, 255, 0.6);
+            }
+          }
+
+          @keyframes floatAvatar {
+            0%, 100% {
+              transform: translateY(0) rotateY(0deg) rotateX(0deg);
+            }
+            50% {
+              transform: translateY(-15px) rotateY(12deg) rotateX(8deg);
+            }
+          }
+
+          .login-card {
+    
+  max-width: 380px;
+  margin: 8% auto 0 auto;
+  padding: 25px 25px 30px 25px;
+  background: #1e1e2f;
+  border-radius: 20px;
+  animation: floatCard 6s ease-in-out infinite;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-shadow: 0 8px 20px rgba(108, 99, 255, 0.3);
+}
+
+
+          .login-card ion-input {
+            width: 100%;
+            margin-top: 15px;
+          }
+
+          .login-card ion-button {
+            width: 100%;
+          }
+
+          .avatar-wrapper {
+            position: relative;
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            overflow: hidden;
+            animation: floatAvatar 6s ease-in-out infinite;
+            cursor: default;
+            margin-bottom: 20px;
+          }
+        `}
+      </style>
     </IonPage>
   );
 };
