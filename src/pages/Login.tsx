@@ -106,9 +106,9 @@ const Login: React.FC = () => {
             Login
           </IonButton>
 
-          <p style={{ textAlign: 'center', color: '#aaa', fontSize: '14px' }}>
-            Already have an account? <a href="/it35-lab/app/home/Register" style={{ color: '#6c63ff', textDecoration: 'none' }}>Register</a>
-          </p>
+          <IonButton routerLink="/it35-lab/app/home/Register" expand="full" fill="clear" shape='round'>
+          Don't have an account? Register here
+        </IonButton>
         </div>
 
         <AlertBox message={alertMessage} isOpen={showAlert} onClose={() => setShowAlert(false)} />

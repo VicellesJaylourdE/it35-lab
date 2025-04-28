@@ -138,12 +138,12 @@ const Register: React.FC = () => {
             </label>
           </div>
 
-          <IonButton onClick={handleOpenVerificationModal} expand="full" color="success" style={{ marginTop: '10px' }}>
+          <IonButton onClick={handleOpenVerificationModal} expand="full" color="success" style={{ marginTop: '10px' }}>/it35-lab
             Create account
           </IonButton>
-          <p style={{ textAlign: 'center', color: '#aaa', fontSize: '14px' }}>
-            Already have an account? <a href="/it35-lab" style={{ color: '#6c63ff', textDecoration: 'none' }}>Log in</a>
-          </p>
+          <IonButton routerLink="/it35-lab" routerDirection="back" color="primary">
+                            Go to Login
+                        </IonButton>
 
         </div>
 
