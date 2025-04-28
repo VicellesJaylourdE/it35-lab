@@ -25,7 +25,7 @@ const AlertBox: React.FC<{ message: string; isOpen: boolean; onClose: () => void
   );
 };
 
-const SignUp: React.FC = () => {
+const Register: React.FC = () => {
   const navigation = useIonRouter();
   const [firstName, setFirstName] = useState('');
   const [lastName, setLastName] = useState('');
@@ -84,8 +84,8 @@ const SignUp: React.FC = () => {
   return (
     <IonPage>
       <IonContent className="ion-padding">
-        <div className="signup-card">
-          <h1 className="signup-title">Create an account</h1>
+        <div className="register-card">
+          <h1 className="register-title">Create an account</h1>
           <p style={{ textAlign: 'left', color: '#666', marginBottom: '20px' }}>
               Please login or sign up to continue
             </p>
@@ -198,7 +198,7 @@ const SignUp: React.FC = () => {
               }
             }
 
-            .signup-card {
+            .register-card {
               max-width: 380px;
               margin: 8% auto 0 auto;
               padding: 25px 25px 30px 25px;
@@ -211,7 +211,7 @@ const SignUp: React.FC = () => {
               box-shadow: 0 8px 20px rgba(108, 99, 255, 0.3);
             }
 
-            .signup-title {
+            .register-title {
               font-size: 26px;
               color: white;
               margin-bottom: 5px;
@@ -235,4 +235,4 @@ const inputStyle = {
   '--border-color': '#6c63ff',
 };
 
-export default SignUp;
+export default Register;

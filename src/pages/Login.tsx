@@ -61,7 +61,7 @@ const Login: React.FC = () => {
             <div className="avatar-glow"></div>
           </IonAvatar>
 
-          <h1 className="signup-title">USER LOGIN</h1>
+          <h1 className="Register-title">USER LOGIN</h1>
           <p style={{ textAlign: 'left', color: '#666', marginBottom: '20px' }}>
             Please login or sign up to continue
           </p>
@@ -107,7 +107,7 @@ const Login: React.FC = () => {
           </IonButton>
 
           <p style={{ textAlign: 'center', color: '#aaa', fontSize: '14px' }}>
-            Already have an account? <a href="/it35-lab/app/home/SignUp" style={{ color: '#6c63ff', textDecoration: 'none' }}>Sign Up</a>
+            Already have an account? <a href="/it35-lab/app/home/Register" style={{ color: '#6c63ff', textDecoration: 'none' }}>Register</a>
           </p>
         </div>
 
