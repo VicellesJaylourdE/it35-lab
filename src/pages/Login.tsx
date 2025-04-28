@@ -107,7 +107,7 @@ const Login: React.FC = () => {
           </IonButton>
 
           <p style={{ textAlign: 'center', color: '#aaa', fontSize: '14px' }}>
-            Already have an account? <a href="/it35-lab/app/home/signup" style={{ color: '#6c63ff', textDecoration: 'none' }}>Sign Up</a>
+            Already have an account? <a href="/it35-lab/app/home/SignUp" style={{ color: '#6c63ff', textDecoration: 'none' }}>Sign Up</a>
           </p>
         </div>
 

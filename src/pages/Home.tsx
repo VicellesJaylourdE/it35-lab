@@ -28,7 +28,6 @@ import SignUp from './SignUp';
       {name:'Feed', tab:'feed',url: '/it35-lab/app/home/feed', icon: bookOutline},
       {name:'Search', tab:'search', url: '/it35-lab/app/home/search', icon: search},
       {name:'Favorites',tab:'favorites', url: '/it35-lab/app/home/favorites', icon: star},
-      {name:'About me',tab:'About Me', url: '/it35-lab/app/home/about_me', icon: person},
     ]
     
     return (
@@ -50,7 +49,6 @@ import SignUp from './SignUp';
           <Route exact path="/it35-lab/app/home/SignUp" component={SignUp} />
           <Route exact path="/it35-lab/app/home/search" render={Search} />
           <Route exact path="/it35-lab/app/home/favorites" render={Favorites} />
-          <Route exact path="/it35-lab/app/home/About_me" render={About_me} />
           
 
           <Route exact path="/it35-lab/app/home">
