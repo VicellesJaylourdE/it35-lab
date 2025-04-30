@@ -55,8 +55,8 @@ const Login: React.FC = () => {
         <div className="login-card">
           <IonAvatar className="avatar-wrapper">
             <img
-              src="https://media2.giphy.com/media/v1.Y2lkPTc5MGI3NjExM3JvZjB3MG9nc3NkNDUzMWc4eDQydG52NThvNXVnbmwyandpcGZrZSZlcD12MV9naWZzX3NlYXJjaCZjdD1n/Dg4TxjYikCpiGd7tYs/giphy.webp"
-              alt="dog"
+                src="https://i.pinimg.com/originals/46/41/61/4641611401ecb508c625eebe448da663.gif"
+              alt="Salmoon"
             />
             <div className="avatar-glow"></div>
           </IonAvatar>
@@ -73,8 +73,8 @@ const Login: React.FC = () => {
             style={{
               borderRadius: '12px',
               marginBottom: '10px',
-              '--highlight-color-focused': '#007BFF',
-              '--border-color': '#6a80f2'
+              '--highlight-color-focused': '#ACC572',
+              '--border-color': '#ACC572'
             }}
             value={email}
             onIonChange={(e) => setEmail(e.detail.value!)}
@@ -87,8 +87,8 @@ const Login: React.FC = () => {
             style={{
               borderRadius: '12px',
               marginBottom: '10px',
-              '--highlight-color-focused': '#008000',
-              '--border-color': '#6a80f2'
+              '--highlight-color-focused': '#ACC572',
+              '--border-color': '#ACC572'
             }}
             value={password}
             onIonChange={(e) => setPassword(e.detail.value!)}
@@ -100,14 +100,14 @@ const Login: React.FC = () => {
             onClick={doLogin}
             expand="full"
             fill="solid"
-            color="success"
+            color="warning"
             style={{ marginTop: '20px' }}
           >
             Login
           </IonButton>
 
-          <IonButton routerLink="/it35-lab/app/home/Register" expand="full" fill="clear" shape='round'>
-          Don't have an account? Register here
+          <IonButton routerLink="/it35-lab/app/home/Register" expand="full" fill="clear" color="success" >
+          Don't have an account?
         </IonButton>
         </div>
 
@@ -123,17 +123,17 @@ const Login: React.FC = () => {
         />
       </IonContent>
 
-      {/* Floating Animation and Card Styles */}
-      <style>
+     {/* Floating Animation and Card Styles */}
+     <style>
         {`
           @keyframes floatCard {
             0%, 100% {
               transform: translateY(0) rotateX(0deg) rotateZ(0deg);
-              box-shadow: 0 15px 25px rgba(0, 0, 0, 0.2), 0 0 20px 3px hsla(271, 76.5%, 48.4%, 0.6);
+              box-shadow: 0 15px 25px rgba(0, 0, 0, 0.2), 0 0 20px 3px hsla(72, 18.50%, 84.10%, 0.60);
             }
             50% {
               transform: translateY(-20px) rotateX(6deg) rotateZ(-3deg);
-              box-shadow: 0 25px 40px rgba(0, 0, 0, 0.3), 0 0 35px 7px rgba(108, 99, 255, 0.6);
+              box-shadow: 0 25px 40px rgba(0, 0, 0, 0.3), 0 0 35px 7px rgba(246, 255, 0, 0.6);
             }
           }
 
@@ -157,7 +157,7 @@ const Login: React.FC = () => {
   display: flex;
   flex-direction: column;
   align-items: center;
-  box-shadow: 0 8px 20px rgba(108, 99, 255, 0.3);
+  box-shadow: 0 8px 20px rgba(246, 255, 0, 0.6);
 }
 
 
