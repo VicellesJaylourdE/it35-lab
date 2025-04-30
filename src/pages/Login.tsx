@@ -107,7 +107,7 @@ const Login: React.FC = () => {
           </IonButton>
 
           <IonButton routerLink="/it35-lab/app/home/Register" expand="full" fill="clear" color="success" >
-          Don't have an account?
+          Don't have an account? Register here
         </IonButton>
         </div>
 
